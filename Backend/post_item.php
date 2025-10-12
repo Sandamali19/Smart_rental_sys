@@ -35,7 +35,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
             $image_path = $target_file;
-        }
-}}
+        }}
+        $sql = "INSERT INTO item (
+                item_name, description, price, image_path, additional_images, 
+                location, contact_info, availability_status, avg_rating, 
+                review_count, view_count, posted_at, user_id, cat_id
+            ) VALUES (
+                '$item_name', '$description', '$price', '$image_path', '$additional_images',
+                '$location', '$contact_info', '$availability_status', '$avg_rating',
+                '$review_count', '$view_count', '$posted_at', '$user_id', '$cat_id'
+            )";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "<h2>✅ Item posted successfully!</h2>";
+        echo "<a href='../frontend/post_item.html'>Post another item</a>";
+    } else {
+        echo "❌ Error inserting: " . $conn->error;
+    }}
 
 ?>
