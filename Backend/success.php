@@ -11,8 +11,8 @@
 
     <p>
       <?php
-        if (isset($_POST['itemName'])) {
-          $itemName = htmlspecialchars($_POST['itemName']);
+        if (isset($_POST['item_name'])) {
+          $item_name = htmlspecialchars($_POST['item_name']);
           echo "Your item <strong>$item_name</strong> has been successfully added to the rental list.";
         } else {
           echo "Your item has been successfully added to the rental list.";
