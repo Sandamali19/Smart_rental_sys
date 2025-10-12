@@ -36,8 +36,6 @@ if ($result->num_rows == 1) {
       <h3><?php echo htmlspecialchars($user['name']); ?></h3>
       <p>Email: <?php echo htmlspecialchars($user['email']); ?></p>
       <p>Phone: <?php echo htmlspecialchars($user['phone']); ?></p>
-      <a href="edit_profile.php" class="btn">Edit Profile</a>
-      <br><br>
       <a href="logout.php" class="btn">Logout</a>
     </div>
   </div>
