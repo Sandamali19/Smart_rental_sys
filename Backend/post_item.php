@@ -22,6 +22,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $review_count = 0;
     $view_count = 0;
     $additional_images = '';
-}
+
+    $image_path = '';
+    if (isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
+        $target_dir = "uploads/";
+        if (!is_dir($target_dir)) {
+            mkdir($target_dir, 0777, true);
+        }
+
+        $image_name = time() . "_" . basename($_FILES['image']['name']);
+        $target_file = $target_dir . $image_name;
+
+        if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
+            $image_path = $target_file;
+        }
+}}
 
 ?>
