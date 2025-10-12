@@ -9,7 +9,24 @@
   <div class="form-container">
     <h2>Post Your Item</h2>
     <form action="../backend/post_item.php" method="post" enctype="multipart/form-data">
-</form>
+    
+    <label for="itemName">Item Name</label>
+    <input type="text" id="itemName" name="item_name" placeholder="Ex: Laptop, Bicycle" required>
+
+    <label for="category">Category</label>
+    <select id="category" name="cat_id" required>
+    <option value="">-- Select Category --</option>
+    <option value="1">Tools</option>
+    <option value="2">Electronics</option>
+    <option value="3">Furniture</option>
+    <option value="4">Vehicles</option>
+    <option value="5">Fashion</option>
+    </select>
+
+    <label for="description">Description</label>
+    <textarea id="description" name="description" rows="4" placeholder="Add details about your item..." required></textarea>
+
+    </form>
 
   </div>
 </body>
