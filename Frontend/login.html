@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="Style\style.css">
 </head>
 <body>
     <div class="container">
@@ -11,7 +12,7 @@
             <h2>Login</h2>
             <p>Please fill in your credentials to login.</p>
             
-            <form action="logAction.php" method="post">
+            <form action="../Backend\logAction.php" method="post">
                 <div class="form-group">
                     <label>Username</label>
                     <input type="text" name="username" required>
@@ -23,7 +24,7 @@
                 <div class="form-group">
                     <input type="submit" class="btn" value="Login">
                 </div>
-                <p>Don't have an account? <a href="signup.html">Sign up now</a></p> 
+                <p>Don't have an account? <a href="singup.html">Sign up now</a></p> 
             </form>
         </div> 
     </div>

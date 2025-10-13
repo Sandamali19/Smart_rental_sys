@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once "../Backend/config.php";
+require_once 'config.php';
 
 $errors = [];
 
@@ -18,7 +18,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     
     if(empty($errors)){
-        $sql = "SELECT user_id, username, password FROM users WHERE username = ?";
+        $sql = "SELECT user_id, username, `password` FROM users WHERE username = ?";
         if($stmt = mysqli_prepare($conn, $sql)){ 
             $stmt->bind_param("s", $param_username);
             $param_username = $username;
@@ -31,10 +31,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     if($stmt->fetch()){
                         if(password_verify($password, $hashed_password)){
                             $_SESSION["loggedin"] = true;
-                            $_SESSION["id"] = $id;
+                            $_SESSION["user_id"] = $id;
                             $_SESSION["username"] = $username; 
                            
-                            header("location: index.php"); 
+                            header("location: ../index.html"); 
                             exit;
                         } else{
                             $errors[] = "Invalid username or password.";
@@ -60,11 +60,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             echo "<li>" . htmlspecialchars($error) . "</li>";
         }
         echo "</ul>";
-        echo '<p><a href="login.html">Go back to Login Form</a></p>';
+        echo '<p><a href="../Frontend/login.html">Go back to Login Form</a></p>';
     }
 
 } else {
-    header("location: login.html");
+    header("location: ../Frontend/login.html");
     exit;
 }
 ?>

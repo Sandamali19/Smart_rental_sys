@@ -1,5 +1,5 @@
 <?php
-require_once "../Backend/config.php";
+require_once 'config.php';
 $errors = [];
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -71,7 +71,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     
     if(empty($errors)){
-        $sql = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)";
+        $sql = "INSERT INTO users (username, email, `password`) VALUES (?, ?, ?)";
         
         if($statement = mysqli_prepare($conn, $sql)){
           
@@ -81,7 +81,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $param_email = $email;
             
             if(mysqli_stmt_execute($statement)){
-                header("location: login.html");
+                header("location:../Frontend/login.html");
                 exit; 
             } else {
                 $errors[] = "Something went wrong. Please try again later. (" . mysqli_error($conn) . ")";
@@ -97,12 +97,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             echo "<li>" . htmlspecialchars($error) . "</li>";
         }
         echo "</ul>";
-        echo '<p><a href="signup.html">Go back to Sign Up Form</a></p>';
+        echo '<p><a href="../Frontend/signup.html">Go back to Sign Up Form</a></p>';
     }
     $conn->close();
 
 } else {
-    header("location: signup.html");
+    header("location:../Frontend/singup.html");
     exit;
 }
 ?>
