@@ -16,7 +16,7 @@
             <nav class="nav-links">
                 <a href="index.html">Home</a>
                 <a href="">Post Item</a>
-                <a href="">Book Item</a>
+                <a href="book_item.php">Book Item</a>
                 <a href=""><button class="category-btn">Login</button></a>
                 <a href=""><button class="category-btn">Signup</button></a>
             </nav>
