@@ -1,5 +1,5 @@
 <?php
-include 'config.php';
+include 'Backend/config.php';
 
 if (!isset($_GET['item_id'])) {
     die("No item selected.");
