@@ -34,7 +34,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["user_id"] = $id;
                             $_SESSION["username"] = $username; 
                            
-                            header("location: ../index.html"); 
+                            header("location: ../index.php"); 
                             exit;
                         } else{
                             $errors[] = "Invalid username or password.";
