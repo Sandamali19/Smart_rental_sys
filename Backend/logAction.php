@@ -34,7 +34,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["user_id"] = $id;
                             $_SESSION["username"] = $username; 
                            
-                            header("location: ../index.php"); 
+                           //add alert
+                            echo '<script>';
+                                echo 'alert("Login successfully!");';
+                                echo 'window.location.href = "../index.php";';
+                            echo '</script>';
+
                             exit;
                         } else{
                             $errors[] = "Invalid username or password.";
@@ -45,6 +50,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 }
             } else{
                 $errors[] = "Oops! Something went wrong. Please try again later.";
+
             }
             
             $stmt->close(); 
