@@ -102,7 +102,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $conn->close();
 
 } else {
-    header("location:../Frontend/singup.html");
+    header("location:../Frontend/signup.html");
     exit;
 }
 ?>
