@@ -1,5 +1,5 @@
 <?php
-include 'Backend/config.php';
+include 'config.php';
 
 if (!isset($_GET['item_id'])) {
     die("No item selected.");
@@ -21,5 +21,6 @@ $image_path = htmlspecialchars($item['image_path']);
 $description = nl2br(htmlspecialchars($item['description']));
 $location = htmlspecialchars($item['location']);
 
+include '../frontend/bookItem_view.html';
 
 ?>
