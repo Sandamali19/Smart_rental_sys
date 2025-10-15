@@ -47,10 +47,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             )";
 
     if ($conn->query($sql) === TRUE) {
-        echo "<h2>✅ Item posted successfully!</h2>";
-        echo "<a href='../frontend/post_item.html'>Post another item</a>";
+        // Redirect to success.html after insertion
+        header("Location: ../frontend/success.html");
+        exit();
     } else {
         echo "❌ Error inserting: " . $conn->error;
-    }}
+    }
+}
 
 ?>
