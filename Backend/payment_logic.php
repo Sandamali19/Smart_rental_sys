@@ -1,0 +1,60 @@
+<?php
+include 'config.php';
+session_start();
+
+// Ensure user came from booking form
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['confirm_booking'])) {
+
+    $item_id = intval($_POST['item_id']);
+    $price_per_day = floatval($_POST['price_per_day']);
+    $start_date = $_POST['start_date'];
+    $end_date = $_POST['end_date'];
+
+    // Validate dates
+    function isAvailable($conn, $item_id, $start_date, $end_date) {
+        $query = "SELECT COUNT(*) AS conflicts
+                  FROM item_availability
+                  WHERE item_id = ?
+                  AND available_date BETWEEN ? AND ?
+                  AND is_available = 0";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("iss", $item_id, $start_date, $end_date);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+        return $row['conflicts'] == 0; 
+    }
+
+    if (!isAvailable($conn, $item_id, $start_date, $end_date)) {
+        echo "<script>alert('Sorry, the item is not available for the selected dates.'); window.location='book_item.php?item_id=$item_id';</script>";
+        exit();
+    }
+
+    // take the count of days
+    $days = (strtotime($end_date) - strtotime($start_date)) / (60 * 60 * 24);
+    if ($days <= 0) $days = 1;
+
+    //measure total payment
+    $base_price = $price_per_day * $days;
+    $service_charge = round($base_price * 0.03, 2); 
+    $total_payment = round($base_price + $service_charge, 2);
+
+    //store payement data
+    $_SESSION['payment_data'] = [
+        'item_id' => $item_id,
+        'start_date' => $start_date,
+        'end_date' => $end_date,
+        'days' => $days,
+        'price_per_day' => $price_per_day,
+        'base_price' => $base_price,
+        'service_charge' => $service_charge,
+        'total_payment' => $total_payment
+    ];
+    header("Location: ../frontend/payment_view.php");
+    exit();
+
+} else {
+    header("Location: all_items.php");
+    exit();
+}
+?>
