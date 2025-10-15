@@ -21,6 +21,6 @@ $image_path = htmlspecialchars($item['image_path']);
 $description = nl2br(htmlspecialchars($item['description']));
 $location = htmlspecialchars($item['location']);
 
-include '../frontend/bookItem_view.html';
+include '../frontend/bookItem_view.php';
 
 ?>
