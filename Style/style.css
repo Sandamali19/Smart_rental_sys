@@ -1,0 +1,132 @@
+/* Color Palette based on the image:
+   --color-darkest: #383E63;
+   --color-medium-dark: #505786;
+   --color-medium: #6971B0;
+   --color-light: #8891D4;
+   --color-lightest: #A8B3F5;
+*/
+
+body {
+    /* Use the darkest color for the main background */
+    background-color: #383E63; 
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    color: #A8B3F5; /* Set a light color for default text */
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper {
+    /* Use a slightly lighter color for the form background */
+    background-color: #505786; 
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    width: 350px;
+    max-width: 90%;
+    text-align: center;
+}
+
+h2 {
+    color: #A8B3F5; /* Lightest color for headings */
+    margin-bottom: 10px;
+    font-size: 1.8em;
+}
+
+p {
+    color: #A8B3F5;
+    margin-bottom: 25px;
+}
+
+/* --- Form Elements --- */
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #A8B3F5;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #6971B0; /* Medium color for border */
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: #383E63; /* Dark background for input fields */
+    color: #A8B3F5;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus {
+    border-color: #8891D4; /* Lighter color on focus */
+    outline: none;
+}
+
+/* --- Buttons --- */
+
+.btn,
+.button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s, transform 0.1s;
+    text-transform: uppercase;
+    font-weight: bold;
+    
+    /* Use a prominent color for the button */
+    background-color: #6971B0; 
+    color: #383E63; /* Dark text on the button */
+}
+
+.btn:hover,
+.button:hover {
+    background-color: #8891D4; /* Lighter color on hover */
+    transform: translateY(-2px);
+}
+
+/* --- Links and Footer Text --- */
+
+.wrapper p {
+    margin-top: 20px;
+    font-size: 0.9em;
+}
+
+.wrapper a {
+    color: #8891D4; /* Use a medium-light color for links */
+    text-decoration: none;
+    transition: color 0.3s;
+    font-weight: bold;
+}
+
+.wrapper a:hover {
+    color: #A8B3F5; /* Lightest color on link hover */
+    text-decoration: underline;
+}
+
+/* Fix for the inline style in signup.html for the login link */
+.wrapper a[style*="color:#667eea;"] {
+    color: #8891D4 !important; /* Overwrite the inline style */
+}
