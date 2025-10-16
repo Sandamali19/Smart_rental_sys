@@ -46,14 +46,14 @@ require_once 'config.php';
 <html> 
 <body>
   <div class="container">
-    <h1>Hello, <?php echo htmlspecialchars($user['username']); ?></h1>
+    <h1>Hello, <?php echo htmlspecialchars($user['username']?? ''); ?></h1>
     <div class="profile">
       <!--<img src=" " alt="Profile Picture">-->
        <div class="profile-details">
-        <p><strong>Email:</strong> <?php echo htmlspecialchars($user['email']); ?></p>
-        <p><strong>Phone:</strong> <?php echo htmlspecialchars($user['phone']  ?? 'N/A');  ?></p>
-        <p><strong>Address:</strong> <?php echo htmlspecialchars($user['address']  ?? 'N/A');  ?></p>
-        <p><strong>Joined:</strong> <?php echo htmlspecialchars($user['created_at']); ?></p>
+        <p><strong>Email:</strong> <?php echo htmlspecialchars($user['email'] ?? ''); ?></p>
+        <p><strong>Phone:</strong> <?php echo htmlspecialchars($user['phone']  ?? '');  ?></p>
+        <p><strong>Address:</strong> <?php echo htmlspecialchars($user['address']  ?? '');  ?></p>
+        <p><strong>Joined:</strong> <?php echo htmlspecialchars($user['created_at'] ?? ''); ?></p>
         <p><a href="edit_profile.php">Edit Profile</a></p>
     </div>
   </div>
