@@ -1,9 +1,10 @@
 <?php
 session_start();
 if (!isset($_SESSION['user_id'])) {
-    header("Location: ../frontend/login.html");
+    header("Location: ../Frontend/login.html");
     exit();
 }
+
 include 'config.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -25,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $image_path = '';
     if (isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
-        $target_dir = "uploads/";
+        $target_dir = "Uploads/";
         if (!is_dir($target_dir)) {
             mkdir($target_dir, 0777, true);
         }
