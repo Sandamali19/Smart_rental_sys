@@ -1,3 +1,22 @@
+<?php
+include 'Backend/config.php';
+session_start();
+
+$item_sql = "SELECT COUNT(*) AS total_items FROM items WHERE availability_status = 'available'";
+$item_result = $conn->query($item_sql);
+$item_count = ($item_result->num_rows > 0) ? $item_result->fetch_assoc()['total_items'] : 0;
+
+$user_sql = "SELECT COUNT(*) AS total_users FROM users";
+$user_result = $conn->query($user_sql);
+$user_count = ($user_result && $user_result->num_rows > 0) ? $user_result->fetch_assoc()['total_users'] : 0;
+
+$cat_sql = "SELECT COUNT(*) AS total_cats FROM categories";
+$cat_result = $conn->query($cat_sql);
+$cat_count = ($cat_result->num_rows > 0) ? $cat_result->fetch_assoc()['total_cats'] : 0;
+
+$cat_sql = "SELECT cat_id, cat_name FROM categories ORDER BY cat_name ASC";
+$cat_result = $conn->query($cat_sql);
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
