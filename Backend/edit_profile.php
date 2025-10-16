@@ -16,6 +16,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $phone = $_POST['phone'] ?? '';
     $address = $_POST['address'] ?? '';
 
+    //profile image upload (optional)
+    $profile_image_path = null;
+    if (!empty($_FILES['profile_image']['name'])) {
+        $target_dir = "../uploads/";
+        if (!is_dir($target_dir)) {
+            mkdir($target_dir, 0777, true);
+        }
+        $file_name = time() . "_" . basename($_FILES["profile_image"]["name"]);
+        $target_file = $target_dir . $file_name;
+        if (move_uploaded_file($_FILES["profile_image"]["tmp_name"], $target_file)) {
+            $profile_image_path = $target_file;
+        }
+    }
    
 
     if ($profile_image_path) {
