@@ -121,6 +121,6 @@ require_once 'config.php';
         </table>
         <?php endif; ?>
   </div>
-   <button class="logout-btn" onclick="window.location.href='logout.php'">Logout</button>
+   <button class="button" onclick="window.location.href='logout.php'">Logout</button>
 </body>
 </html>
