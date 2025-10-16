@@ -158,7 +158,7 @@ if ($result->num_rows > 0) {
                     <ul>
                         <li><a href="">Home</a></li>
                         <li><a href="">Search</a></li>
-                        <li><a href="">Register</a></li>
+                        <li><a href="">Signup</a></li>
                         <li><a href=" ">Login</a></li>
                     </ul>
                 </div>
