@@ -9,7 +9,7 @@ require_once 'config.php';
 
     $user_id= intval($_SESSION['user_id']);
 
-    $user_sql = "SELECT username, email, phone, `address`, profile_image, created_at 
+    $user_sql = "SELECT username, email, phone, `address`,created_at 
                 FROM users WHERE user_id = ?";
     $user_stmt = $conn->prepare($user_sql);
     $user_stmt->bind_param("i", $user_id);
@@ -48,7 +48,7 @@ require_once 'config.php';
   <div class="container">
     <h1>Hello, <?php echo htmlspecialchars($user['username']); ?></h1>
     <div class="profile">
-      <img src=" " alt="Profile Picture">
+      <!--<img src=" " alt="Profile Picture">-->
        <div class="profile-details">
         <p><strong>Email:</strong> <?php echo htmlspecialchars($user['email']); ?></p>
         <p><strong>Phone:</strong> <?php echo htmlspecialchars($user['phone']  ?? 'N/A');  ?></p>

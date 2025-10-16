@@ -17,29 +17,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $address = $_POST['address'] ?? '';
 
     //profile image upload (optional)
-    $profile_image_path = null;
-    if (!empty($_FILES['profile_image']['name'])) {
-        $target_dir = "../uploads/";
-        if (!is_dir($target_dir)) {
-            mkdir($target_dir, 0777, true);
-        }
-        $file_name = time() . "_" . basename($_FILES["profile_image"]["name"]);
-        $target_file = $target_dir . $file_name;
-        if (move_uploaded_file($_FILES["profile_image"]["tmp_name"], $target_file)) {
-            $profile_image_path = $target_file;
-        }
-    }
+    // $profile_image_path = "../Uploads";
+    // if (!empty($_FILES['profile_image']['name'])) {
+    //     $target_dir = "../Uploads";
+    //     if (!is_dir($target_dir)) {
+    //         mkdir($target_dir, 0777, true);
+    //     }
+    //     $file_name = time() . "_" . basename($_FILES["profile_image"]["name"]);
+    //     $target_file = $target_dir . $file_name;
+    //     if (move_uploaded_file($_FILES["profile_image"]["tmp_name"], $target_file)) {
+    //         $profile_image_path = $target_file;
+    //     }
+    
    
 
-    if ($profile_image_path) {
-        $sql = "UPDATE users SET email=?, phone=?, address=?, profile_image=?, updated_at=NOW() WHERE user_id=?";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("ssssi", $email, $phone, $address, $profile_image_path, $user_id);
-    } else {
+   
         $sql = "UPDATE users SET email=?, phone=?, address=?, updated_at=NOW() WHERE user_id=?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("sssi", $email, $phone, $address, $user_id);
-    }
+    
 
     if ($stmt->execute()) {
         $message = "Profile updated successfully!";
@@ -51,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 
-$sql = "SELECT username, email, phone, address, profile_image FROM users WHERE user_id=?";
+$sql = "SELECT username, email, phone, address FROM users WHERE user_id=?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $user_id);
 $stmt->execute();
@@ -70,7 +66,7 @@ $stmt->close();
 <div class="container">
     <h1>Edit My Profile</h1>
     <div class="profile-preview">
-        <img src="<?php echo htmlspecialchars($user['profile_image'] ?? '../Frontend/default_avatar.png'); ?>" alt="Profile Image">
+        
         <p><strong><?php echo htmlspecialchars($user['username']); ?></strong></p>
     </div>
 
@@ -84,13 +80,11 @@ $stmt->close();
         <label>Address:</label>
         <textarea name="address" rows="3"><?php echo htmlspecialchars($user['address'] ?? ''); ?></textarea>
 
-        <label>Profile Picture:</label>
-        <input type="file" name="profile_image" accept="image/*">
-
+        
         <button type="submit">Save Changes</button>
     </form>
 
-    <a href="" class="back">Back to Profile</a>
+    <a href="user_profile.php" class="back">Back to Profile</a>
 </div>
 </body>
 </html>
