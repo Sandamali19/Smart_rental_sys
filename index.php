@@ -40,7 +40,7 @@ $conn->close();
             <a href="#" class="logo">🏠 RentHub</a>
             <nav class="nav-links">
                 <a href="index.php">Home</a>
-                <a href="Frontend/post_item.html">Post Item</a>
+                <a href="Frontend/post_item.php">Post Item</a>
                 <a href="Backend/all_items.php">Book Item</a>
                 <a href="Backend\user_profile.php">My Profile</a>
                 <a href="Frontend/login.html"><button class="category-btn">Login</button></a>
