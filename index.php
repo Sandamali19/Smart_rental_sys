@@ -36,9 +36,9 @@ $conn->close();
         <div class="header-container">
             <a href="#" class="logo">🏠 RentHub</a>
             <nav class="nav-links">
-                <a href="index.html">Home</a>
+                <a href="index.php">Home</a>
                 <a href="Frontend/post_item.html">Post Item</a>
-                <a href="book_item.php">Book Item</a>
+                <a href="Backend/all_items.php">Book Item</a>
                 <a href="">My Profile</a>
                 <a href="Frontend/login.html"><button class="category-btn">Login</button></a>
                 <a href="Frontend/signup.html"><button class="category-btn">Signup</button></a>
