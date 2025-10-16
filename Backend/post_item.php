@@ -19,10 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     
     $availability_status = 'available';
-    $avg_rating = 0;
-    $review_count = 0;
-    $view_count = 0;
-    $additional_images = '';
+    
 
     $image_path = '';
     if (isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
@@ -38,13 +35,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $image_path = $target_file;
         }}
         $sql = "INSERT INTO items (
-                item_name, description, price, image_path, additional_images, 
-                location, contact_info, availability_status, avg_rating, 
-                review_count, view_count, posted_at, user_id, cat_id
+                item_name, description, price, image_path, 
+                location, contact_info, posted_at, user_id, cat_id,availability_status
             ) VALUES (
-                '$item_name', '$description', '$price', '$image_path', '$additional_images',
-                '$location', '$contact_info', '$availability_status', '$avg_rating',
-                '$review_count', '$view_count', '$posted_at', '$user_id', '$cat_id'
+                '$item_name', '$description', '$price', '$image_path',
+                '$location', '$contact_info', '$posted_at', '$user_id', '$cat_id','$availability_status'
             )";
 
     if ($conn->query($sql) === TRUE) {

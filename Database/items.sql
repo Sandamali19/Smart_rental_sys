@@ -12,3 +12,6 @@ CREATE TABLE IF NOT EXISTS items (
     FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE, 
     FOREIGN KEY (cat_id) REFERENCES categories(cat_id) ON DELETE SET NULL 
 ); 
+
+alter table items 
+add column availability_status ENUM('available', 'rented', 'maintenance', 'sold') DEFAULT 'available';
