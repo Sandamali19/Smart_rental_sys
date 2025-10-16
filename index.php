@@ -81,12 +81,19 @@ $conn->close();
         <div class="categories-section">
             <h2>Browse by Category</h2>
             <div class="categories">
-                <button class="category-btn">📱 Electronics</button>
-                <button class="category-btn">🚗 Vehicles</button>
-                <button class="category-btn">🔧 Tools</button>
-                <button class="category-btn">⚽ Sports</button>
-                <button class="category-btn">🛋️ Furniture</button>
-                <button class="category-btn">🌟 All Items</button>
+                 <?php
+                if ($cat_result && $cat_result->num_rows > 0) {
+                    while ($row = $cat_result->fetch_assoc()) {
+                    echo '
+                    <div class="category-card" href="category_items.php?cat_id=' . $row['cat_id'] . '" class="view-btn">
+                    <h3>' . htmlspecialchars($row['cat_name']) . '</h3>
+                    
+                    </div>';
+                }
+                } else {
+                echo "<p>No categories found.</p>";
+                }
+                ?>
             </div>
         </div>
 
