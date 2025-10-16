@@ -34,5 +34,26 @@ $conn->close();
     </form>
 
     <h2>All Items</h2>
+    <div class="item-grid">
+    <?php
+        if($result->num_rows > 0){
+            while($row = $result->fetch_assoc()){
+                ?>
+                <div class="item-card">
+                    <img src="<?php echo $row['image_path']; ?>" alt="<?php echo htmlspecialchars($row['item_name']); ?>" width="200">
+                    <h3><?php echo htmlspecialchars($row['item_name']); ?></h3>
+                    <p>Price: Rs. <?php echo $row['price']; ?></p>
+                    <p>Location: <?php echo htmlspecialchars($row['location']); ?></p>
+                    <a href="book_item.php?item_id=<?php echo $row['item_id']; ?>"><button>Book Item</button></a>
+                </div>
+                <?php
+            }
+        } else {
+            echo "<p>No items found.</p>";
+        }
+        ?>
+    </div>
+
 </body>
-    </html>
+</html>
+
