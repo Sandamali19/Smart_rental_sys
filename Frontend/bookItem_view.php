@@ -34,12 +34,11 @@
           name="price_per_day"
           value="<?php echo $price_per_day ?>"
         />
-
         <label for="start_date">Start Date:</label>
-        <input type="date" name="start_date" required />
+        <input type="date" name="start_date" required /><br><br>
 
         <label for="end_date">End Date:</label>
-        <input type="date" name="end_date" required />
+        <input type="date" name="end_date" required /><br>
 
         <button type="submit" name="confirm_booking" class="book-btn">
           Confirm Booking
