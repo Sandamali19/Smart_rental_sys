@@ -26,7 +26,7 @@ require_once 'config.php';
     $bookings = $book_stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     $book_stmt->close();
 
-    pay_sql = "SELECT p.payment_id, p.amount, p.payment_method, p.payment_status, p.transaction_id, p.payment_date,
+    $pay_sql = "SELECT p.payment_id, p.amount, p.payment_method, p.payment_status, p.transaction_id, p.payment_date,
                 b.booking_id
                 FROM payments p
                 JOIN bookings b ON p.booking_id = b.booking_id
@@ -39,3 +39,25 @@ require_once 'config.php';
     $pay_stmt->close();
 
 ?>
+<html> 
+<body>
+
+<div class="container">
+  
+  <h1>Welcome, <?php echo htmlspecialchars($user['username']); ?> 👋</h1>
+
+  <div class="profile">
+    <img src="<?php echo $user['profile_image'] ? htmlspecialchars($user['profile_image']) : ' '; ?>" alt="Profile Picture">
+    <div class="profile-details">
+      <p><strong>Email:</strong> <?php echo htmlspecialchars($user['email']); ?></p>
+     <p><strong>Phone:</strong> <?php echo htmlspecialchars($user['phone']); ?></p>
+     <p><strong>Address:</strong> <?php echo htmlspecialchars($user['address']); ?></p>
+     <p><strong>Joined:</strong> <?php echo htmlspecialchars($user['created_at']); ?></p>
+      <p><a href=" ">Edit Profile</a></p>
+    </div>
+  </div>
+
+ 
+<button class="logout-btn" onclick="window.location.href=' '">Logout</button>
+</body>
+</html>
