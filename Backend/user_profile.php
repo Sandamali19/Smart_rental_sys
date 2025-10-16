@@ -7,8 +7,7 @@ require_once 'config.php';
         exit();
     }
 
-
-    $user_id=$_SESSION['user_id'];
+    $user_id= intval($_SESSION['user_id']);
 
     $user_sql = "SELECT username, email, phone, `address`, profile_image, created_at 
                 FROM users WHERE user_id = ?";
@@ -55,7 +54,7 @@ require_once 'config.php';
         <p><strong>Phone:</strong> <?php echo htmlspecialchars($user['phone']  ?? 'N/A');  ?></p>
         <p><strong>Address:</strong> <?php echo htmlspecialchars($user['address']  ?? 'N/A');  ?></p>
         <p><strong>Joined:</strong> <?php echo htmlspecialchars($user['created_at']); ?></p>
-        <p><a href=" ">Edit Profile</a></p>
+        <p><a href="edit_profile.php">Edit Profile</a></p>
     </div>
   </div>
 
