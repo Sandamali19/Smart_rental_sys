@@ -18,3 +18,21 @@ if(!$result){
 
 $conn->close(); 
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Items | RentHub</title>
+    <link rel="stylesheet" href="styles/all_items.css">
+</head>
+<body>
+
+   
+    <form class="search-bar" action="search.php" method="get">
+        <input type="text" name="item" placeholder="Search items..." required>
+        <button type="submit">Search</button>
+    </form>
+
+    <h2>All Items</h2>
+</body>
+    </html>
