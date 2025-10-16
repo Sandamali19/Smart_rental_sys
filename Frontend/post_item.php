@@ -34,8 +34,8 @@ if (!isset($_SESSION['user_id'])) {
         <label for="category">Category</label>
         <select id="category" name="cat_id" required>
           <option value="">-- Select Category --</option>
-          <option value="1">Beverages</option>
-          <option value="2">Health & Beauty</option>
+          <option value="1">Vehicles</option>
+          <option value="2">Travel Items</option>
           <option value="3">Clothing</option>
           <option value="4">Home & Decor</option>
           <option value="5">Jewelry</option>
@@ -43,7 +43,7 @@ if (!isset($_SESSION['user_id'])) {
           <option value="7">Books</option>
           <option value="8">Electronics</option>
           <option value="9">Sports & Outdoors</option>
-          <option value="10">Food & Spices</option>
+          <option value="10">Property</option>
         </select>
 
         <label for="description">Description</label>
