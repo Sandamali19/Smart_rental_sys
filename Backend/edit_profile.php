@@ -56,10 +56,6 @@ $stmt->close();
 <body>
 <div class="container">
     <h1>Edit My Profile</h1>
-    <?php if ($message): ?>
-        <div class="message"><?php echo $message; ?></div>
-    <?php endif; ?>
-
     <div class="profile-preview">
         <img src="<?php echo htmlspecialchars($user['profile_image'] ?? '../Frontend/default_avatar.png'); ?>" alt="Profile Image">
         <p><strong><?php echo htmlspecialchars($user['username']); ?></strong></p>
