@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['confirm_booking'])) {
         'service_charge' => $service_charge,
         'total_payment' => $total_payment
     ];
-    header("Location: ../frontend/payment_view.php");
+    header("Location: ../Frontend/payment_view.php");
     exit();
 
 } else {

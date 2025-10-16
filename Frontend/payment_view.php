@@ -3,7 +3,7 @@ session_start();
 
 //no payment data will redirect
 if (!isset($_SESSION['payment_data'])) {
-    header("Location: ../frontend/all_items.php");
+    header("Location: ../Frontend/all_items.php");
     exit();
 }
 
@@ -58,7 +58,7 @@ $data = $_SESSION['payment_data'];
 
       <h3>Enter Card Details</h3>
       
-      <form action="../backend/process_payment.php" method="POST">
+      <form action="../Backend/process_payment.php" method="POST">
         <label>Card Number</label>
         <input type="text" name="card_number" required /><br><br>
 

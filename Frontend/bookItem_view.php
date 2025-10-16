@@ -27,7 +27,7 @@
         <?php echo $location ?>
       </p>
 
-      <form action="" method="POST">
+      <form action="../Backend/payment_logic.php" method="POST">
         <input type="hidden" name="item_id" value="<?php echo $item_id ?>" />
         <input
           type="hidden"
