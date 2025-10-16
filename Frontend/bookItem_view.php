@@ -41,12 +41,6 @@
         <label for="end_date">End Date:</label>
         <input type="date" name="end_date" required />
 
-        <label for="notes">Additional Notes:</label>
-        <textarea
-          name="notes"
-          placeholder="Any message for the owner..."
-        ></textarea>
-
         <button type="submit" name="confirm_booking" class="book-btn">
           Confirm Booking
         </button>
