@@ -42,7 +42,7 @@ $conn->close();
                 <a href="index.php">Home</a>
                 <a href="Frontend/post_item.html">Post Item</a>
                 <a href="Backend/all_items.php">Book Item</a>
-                <a href="">My Profile</a>
+                <a href="Backend\user_profile.php">My Profile</a>
                 <a href="Frontend/login.html"><button class="category-btn">Login</button></a>
                 <a href="Frontend/signup.html"><button class="category-btn">Signup</button></a>
             </nav>
