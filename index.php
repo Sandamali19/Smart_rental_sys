@@ -14,6 +14,9 @@ $cat_sql = "SELECT COUNT(*) AS total_cats FROM categories";
 $cat_result = $conn->query($cat_sql);
 $cat_count = ($cat_result->num_rows > 0) ? $cat_result->fetch_assoc()['total_cats'] : 0;
 
+$sql = "SELECT item_id, item_name, price, image_path,`description`, location FROM items ORDER BY posted_at DESC LIMIT 10";
+$result = $conn->query($sql);
+
 $conn->close();
 ?>
 
