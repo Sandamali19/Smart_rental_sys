@@ -2,10 +2,15 @@
 session_start();
 require_once 'config.php';
 
+    if (!isset($_SESSION['user_id'])) {
+        header("Location: ../Frontend/login.html");
+        exit();
+    }
+
 
     $user_id=$_SESSION['user_id'];
 
-    $user_sql = "SELECT username, email, phone, address, profile_image, created_at 
+    $user_sql = "SELECT username, email, phone, `address`, profile_image, created_at 
                 FROM users WHERE user_id = ?";
     $user_stmt = $conn->prepare($user_sql);
     $user_stmt->bind_param("i", $user_id);
@@ -47,8 +52,8 @@ require_once 'config.php';
       <img src=" " alt="Profile Picture">
        <div class="profile-details">
         <p><strong>Email:</strong> <?php echo htmlspecialchars($user['email']); ?></p>
-        <p><strong>Phone:</strong> <?php echo htmlspecialchars($user['phone']); ?></p>
-        <p><strong>Address:</strong> <?php echo htmlspecialchars($user['address']); ?></p>
+        <p><strong>Phone:</strong> <?php echo htmlspecialchars($user['phone']  ?? 'N/A');  ?></p>
+        <p><strong>Address:</strong> <?php echo htmlspecialchars($user['address']  ?? 'N/A');  ?></p>
         <p><strong>Joined:</strong> <?php echo htmlspecialchars($user['created_at']); ?></p>
         <p><a href=" ">Edit Profile</a></p>
     </div>
