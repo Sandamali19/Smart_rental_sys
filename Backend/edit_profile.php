@@ -67,7 +67,7 @@ $stmt->close();
     <h1>Edit My Profile</h1>
     <div class="profile-preview">
         
-        <p><strong><?php echo htmlspecialchars($user['username']); ?></strong></p>
+        <p><strong><?php echo htmlspecialchars($user['username'] ?? ''); ?></strong></p>
     </div>
 
     <form action="" method="POST" enctype="multipart/form-data">
