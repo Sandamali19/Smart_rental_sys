@@ -3,7 +3,7 @@ session_start();
 if (!isset($_SESSION['user_id'])) {
     // Not logged in → redirect to login page
   
-    header("Location: ../Frontend/login.html");
+    header("Location:login.html");
     exit();
 }
 ?>
@@ -18,7 +18,7 @@ if (!isset($_SESSION['user_id'])) {
     <div class="form-container">
       <h2>Post Your Item</h2>
       <form
-        action="../backend/post_item.php"
+        action="../Backend/post_item.php"
         method="post"
         enctype="multipart/form-data"
       >

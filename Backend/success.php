@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Item Posted Successfully</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../Style/style.css">
 </head>
 <body>
   <div class="form-container">
@@ -21,9 +21,9 @@
     </p>
 
     <div class="button-group">
-      <a href="index.html" class="btn">Back to Home</a>
-      <a href="post_item.html" class="btn">Post Another Item</a>
-       <a href="profile.php" class="btn">Go to My Profile</a> 
+      <a href="../index.php" class="btn">Back to Home</a>
+      <a href="../Frontend/post_item.php" class="btn">Post Another Item</a>
+      <a href="profile.php" class="btn">Go to My Profile</a> 
     </div>
   </div>
 </body>
