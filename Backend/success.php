@@ -23,7 +23,6 @@
     <div class="button-group">
       <a href="../index.php" class="btn">Back to Home</a>
       <a href="../Frontend/post_item.php" class="btn">Post Another Item</a>
-      <a href="profile.php" class="btn">Go to My Profile</a> 
     </div>
   </div>
 </body>
