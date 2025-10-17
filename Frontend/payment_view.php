@@ -15,7 +15,7 @@ $data = $_SESSION['payment_data'];
   <head>
     <meta charset="utf-8" />
     <title>Payment</title>
-    <link rel="stylesheet" href="../styles/payment.css" />
+    <link rel="stylesheet" href="../Style/paymemt_view.css" />
   </head>
   <body>
     <div class="payment-card">
