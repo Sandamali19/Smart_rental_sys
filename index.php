@@ -85,18 +85,18 @@ $conn->close();
             <h2>Browse by Category</h2>
             <div class="categories">
                  <?php
-                if ($cat_result && $cat_result->num_rows > 0) {
-                    while ($row = $cat_result->fetch_assoc()) {
-                    echo '
-                    <div class="category-card" href="category_items.php?cat_id=' . $row['cat_id'] . '" class="view-btn">
-                    <h3>' . htmlspecialchars($row['cat_name']) . '</h3>
-                    
-                    </div>';
-                }
-                } else {
-                echo "<p>No categories found.</p>";
-                }
+        if ($cat_result && $cat_result->num_rows > 0) {
+            while ($row = $cat_result->fetch_assoc()) {
                 ?>
+                <a href="Backend/category_items.php?cat_id=<?php echo $row['cat_id']; ?>" class="category-card">
+                    <h3><?php echo htmlspecialchars($row['cat_name']); ?></h3>
+                </a>
+                <?php
+            }
+        } else {
+            echo "<p>No categories found.</p>";
+        }
+        ?>
             </div>
         </div>
 
