@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Book Item - <?php echo $item_name ?></title>
-    <link rel="stylesheet" href="" />
+    <link rel="stylesheet" href="../Style/bookItem_view.css" />
   </head>
   <body>
     <div class="booking-container">
