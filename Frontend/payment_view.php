@@ -3,7 +3,7 @@ session_start();
 
 //no payment data will redirect
 if (!isset($_SESSION['payment_data'])) {
-    header("Location: ../Frontend/all_items.php");
+    header("Location: ../Backend/all_items.php");
     exit();
 }
 
