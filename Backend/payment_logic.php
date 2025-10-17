@@ -10,6 +10,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['confirm_booking'])) {
     $start_date = $_POST['start_date'];
     $end_date = $_POST['end_date'];
 
+    // to see user inputs correct date 
+    $today = date('Y-m-d');
+
+    if ($start_date < $today) {
+    echo "<script>alert('Start date cannot be in the past. Please choose a future date.'); window.history.back();</script>";
+    exit();
+}
+    if ($end_date < $start_date) {
+    echo "<script>alert('End date must be after the start date.'); window.history.back();</script>";
+    exit();
+}
     // Validate dates
     function isAvailable($conn, $item_id, $start_date, $end_date) {
         $query = "SELECT COUNT(*) AS conflicts
