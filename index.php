@@ -29,7 +29,7 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RentHub - Rent Anything, Anytime</title>
-    <link rel="stylesheet" href="../Style/index.css">
+    <link rel="stylesheet" href="Style/index.css">
     
     
 </head>
