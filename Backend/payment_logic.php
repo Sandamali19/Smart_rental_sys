@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['confirm_booking'])) {
 
     // take the count of days
     $days = (strtotime($end_date) - strtotime($start_date)) / (60 * 60 * 24);
-    if ($days <= 0) $days = 1;
+    if ($days == 0) $days = 1;
 
     //measure total payment
     $base_price = $price_per_day * $days;
