@@ -29,7 +29,7 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RentHub - Rent Anything, Anytime</title>
-    <link rel="stylesheet" href="../style/index.css">
+    <link rel="stylesheet" href="../Style/index.css">
     
     
 </head>
@@ -42,7 +42,7 @@ $conn->close();
                 <a href="index.php">Home</a>
                 <a href="Frontend/post_item.php">Post Item</a>
                 <a href="Backend/all_items.php">Book Item</a>
-                <a href="Backend\user_profile.php">My Profile</a>
+                <a href="Backend/user_profile.php">My Profile</a>
                 <a href="Frontend/login.html"><button class="category-btn">Login</button></a>
                 <a href="Frontend/signup.html"><button class="category-btn">Signup</button></a>
             </nav>
@@ -159,10 +159,10 @@ if ($result->num_rows > 0) {
                 <div class="footer-section">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="">Home</a></li>
+                        <li><a href="index.php">Home</a></li>
                         <li><a href="">Search</a></li>
-                        <li><a href="">Signup</a></li>
-                        <li><a href=" ">Login</a></li>
+                        <li><a href="Frontend/signup.html">Signup</a></li>
+                        <li><a href="Frontend/login.html">Login</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
