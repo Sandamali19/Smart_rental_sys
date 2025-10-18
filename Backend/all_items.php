@@ -42,10 +42,10 @@ $conn->close();
                 <div class="item-card">
                     <img src="<?php echo $row['image_path']; ?>" alt="<?php echo htmlspecialchars($row['item_name']); ?>" width="200">
                     <h3><?php echo htmlspecialchars($row['item_name']); ?></h3>
-                    <p>Description: <?php echo htmlspecialchars($row['description']); ?></p>
-                    <p>Price: Rs. <?php echo $row['price']; ?></p>
-                    <p>Location: <?php echo htmlspecialchars($row['location']); ?></p>
-                    <p>Contact Number: <?php echo htmlspecialchars($row['contact_info']); ?></p>
+                    <p><b>Description:</b> <?php echo htmlspecialchars($row['description']); ?></p>
+                    <p><b>Price:</b> Rs. <?php echo $row['price']; ?></p>
+                    <p><b>Location:</b> <?php echo htmlspecialchars($row['location']); ?></p>
+                    <p><b>Contact Number:</b><?php echo htmlspecialchars($row['contact_info']); ?></p>
                     
                     <a href="book_item.php?item_id=<?php echo $row['item_id']; ?>"><button>Book Item</button></a>
                 </div>
