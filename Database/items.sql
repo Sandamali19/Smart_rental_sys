@@ -15,3 +15,6 @@ CREATE TABLE IF NOT EXISTS items (
 
 alter table items 
 add column availability_status ENUM('available', 'rented', 'maintenance', 'sold') DEFAULT 'available';
+
+ALTER TABLE items 
+MODIFY posted_at TIMESTAMP NULL;

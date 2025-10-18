@@ -15,6 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $contact_info = $conn->real_escape_string($_POST['contact_info']);
     $cat_id = intval($_POST['cat_id']);
     $user_id = $_SESSION['user_id'];
+    date_default_timezone_set('Asia/Colombo');
     $posted_at = date('Y-m-d H:i:s');
 
     
