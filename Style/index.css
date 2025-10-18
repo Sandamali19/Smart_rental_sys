@@ -230,6 +230,7 @@ main {
     box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 
+
 .item-image {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     padding: 3rem;
@@ -372,4 +373,38 @@ footer {
     padding-top: 2rem;
     border-top: 1px solid #444;
     color: #bbb;
+}
+
+/* Browse by Category Buttons */
+.browse-category {
+  text-align: center;
+  margin: 40px auto;
+}
+
+.browse-category h2 {
+  color: #1e88e5;
+  font-size: 1.6em;
+  margin-bottom: 20px;
+}
+
+.category-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.category-btn {
+  background-color: #1e88e5;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.category-btn:hover {
+  background-color: #1565c0;
 }

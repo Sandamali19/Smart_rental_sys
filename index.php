@@ -89,6 +89,17 @@ $conn->close();
 
         <div class="categories-section">
             <h2>Browse by Category</h2>
+             <div class="category-buttons">
+        <?php if ($cat_result && $cat_result->num_rows > 0): ?>
+            <?php while ($cat = $cat_result->fetch_assoc()): ?>
+                <a href="Backend/category_items.php?cat_id=<?php echo $cat['cat_id']; ?>" class="category-btn">
+                    <?php echo htmlspecialchars($cat['cat_name']); ?>
+                </a>
+            <?php endwhile; ?>
+        <?php else: ?>
+            <p>No categories found.</p>
+        <?php endif; ?>
+    </div>
             <div class="categories">
                  <?php
         if ($cat_result && $cat_result->num_rows > 0) {
