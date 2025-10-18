@@ -8,7 +8,7 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 $user_id = intval($_SESSION['user_id']);
-$message = "";
+
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -21,9 +21,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bind_param("sssi", $email, $phone, $address, $user_id);
 
     if ($stmt->execute()) {
-        $message = "Profile updated successfully!";
+        echo "<script>
+                alert('Profile updated successfully!');
+                window.location.href='user_profile.php';
+            </script>";
+        exit();
+
     } else {
-        $message = " Error updating profile: " . $stmt->error;
+       echo "<script>
+                alert('Error updating profile: " . addslashes($stmt->error) . "');
+            </script>";
     }
 
     $stmt->close();
