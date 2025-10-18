@@ -18,6 +18,12 @@ $data = $_SESSION['payment_data'];
     <link rel="stylesheet" href="../Style/payment_view.css" />
   </head>
   <body>
+    
+    <style>
+    body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);}
+    </style>
+
     <div class="payment-card">
       <h2>Confirm Payment</h2>
 
