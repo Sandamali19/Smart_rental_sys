@@ -166,7 +166,7 @@ if ($result->num_rows > 0) {
                     <h3>Quick Links</h3>
                     <ul>
                         <li><a href="index.php">Home</a></li>
-                        <li><a href="">Search</a></li>
+                        <li><a href="category_items.php">Search</a></li>
                         <li><a href="Frontend/signup.html">Signup</a></li>
                         <li><a href="Frontend/login.html">Login</a></li>
                     </ul>
