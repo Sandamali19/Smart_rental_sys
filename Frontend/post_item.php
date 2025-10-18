@@ -12,7 +12,7 @@ if (!isset($_SESSION['user_id'])) {
   <head>
     <meta charset="UTF-8" />
     <title>Post Your Item</title>
-    <link rel="stylesheet" href="../Style/style.css" />
+    <link rel="stylesheet" href="../Style/post_item.css" />
   </head>
   <body>
     <div class="form-container">
