@@ -6,7 +6,6 @@
 }
 
 body {
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
   color: #333;
   display: flex;
   justify-content: center;
@@ -21,7 +20,6 @@ body {
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
   padding: 2.5rem;
   width: 100%;
-  max-width: 500px;
   transition: transform 0.3s ease;
 }
 
@@ -29,15 +27,12 @@ body {
   transform: translateY(-5px);
 }
 
-.payment-card h2,
 .payment-card h3 {
-  text-align: center;
-  color: #667eea;
+  color: black;
   margin-bottom: 1.5rem;
 }
 
 .summary {
-  background: #f9f9ff;
   border: 1px solid #e2e2ff;
   padding: 1.5rem;
   border-radius: 8px;
