@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $image_path = '';
     if (isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
-        $target_dir = "Uploads/";
+        $target_dir = "../Uploads/";
         if (!is_dir($target_dir)) {
             mkdir($target_dir, 0777, true);
         }
@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($conn->query($sql) === TRUE) {
         // Redirect to success.html after insertion
-        header("Location: ../frontend/success.html");
+        header("Location: ../Frontend/success.html");
         exit();
     } else {
         echo "❌ Error inserting: " . $conn->error;

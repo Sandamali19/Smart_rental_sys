@@ -18,7 +18,7 @@ if (!isset($_SESSION['user_id'])) {
     <div class="form-container">
       <h2>Post Your Item</h2>
       <form
-        action="../Backend/post_item.php"
+        action="../Backend/post_item_action.php"
         method="post"
         enctype="multipart/form-data"
       >
@@ -44,6 +44,7 @@ if (!isset($_SESSION['user_id'])) {
           <option value="8">Electronics</option>
           <option value="9">Sports & Outdoors</option>
           <option value="10">Property</option>
+           <option value="11">Other</option>
         </select>
 
         <label for="description">Description</label>
