@@ -89,6 +89,9 @@ if (!isset($_SESSION['user_id'])) {
 
         <button href="success.html" type="submit">Post Item</button>
       </form>
+      <div >
+      <a href="../Frontend/view_post.php" class="btn btn-info">View My Posts</a>
+      </div>
     </div>
   </body>
 </html>
