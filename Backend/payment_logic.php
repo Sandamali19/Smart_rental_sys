@@ -2,8 +2,34 @@
 include 'config.php';
 session_start();
 
-// Ensure user came from booking form
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['confirm_booking'])) {
+if (!isset($_SESSION['user_id'])) {
+    die("You must be logged in.");
+}
+
+$user_id = intval($_SESSION['user_id']); 
+
+// check normal or late fee payment
+$payment_type = $_POST['payment_type'] ?? 'initial';
+
+if ($payment_type === 'late_fee') {
+    $booking_id = intval($_POST['booking_id'] ?? 0);
+    $amount = floatval($_POST['amount'] ?? 0);
+
+    $booking = $conn->query("SELECT * FROM bookings WHERE booking_id = $booking_id AND user_id = $user_id")->fetch_assoc();
+    if (!$booking) die("Invalid booking.");
+    
+    // get late fee agian to verify
+    $PER_DAY_FEE = 500.00;
+    $end_date = $booking['end_date'];
+    $days_late = intval((strtotime(date('Y-m-d')) - strtotime($end_date)) / 86400);
+    if ($days_late < 0) $days_late = 0;
+
+    $late_amount = $days_late * $PER_DAY_FEE;
+    $service_charge = round($late_amount * 0.03, 2);
+    $total_due = round($late_amount + $service_charge, 2);
+
+}
+elseif (isset($post['confirm_booking'])) {
 
     $item_id = intval($_POST['item_id']);
     $price_per_day = floatval($_POST['price_per_day']);
