@@ -28,6 +28,40 @@ if ($payment_type === 'late_fee') {
     $service_charge = round($late_amount * 0.03, 2);
     $total_due = round($late_amount + $service_charge, 2);
 
+    if ($total_due <= 0) die("No late fee due.");
+    if (abs($total_due - $amount) > 0.5) die("Amount mismatch.");
+
+    $payment_success = true;
+
+    // get username of buyer
+    $user = $conn->query("SELECT username FROM users WHERE user_id = $user_id")->fetch_assoc();
+    $username = $user ? $user['username'] : 'Unknown User';
+
+    if ($payment_success) {
+        // Generate unique transaction ID
+        $transaction_id = 'TXN-' . strtoupper(uniqid());
+
+        // Insert payment record with transaction ID
+        $stmt = $conn->prepare("INSERT INTO payments 
+            (booking_id, amount, payment_method, payment_status, transaction_id, payment_type) 
+            VALUES (?, ?, 'Card', 'completed', ?, 'late_fee')");
+        $stmt->bind_param("ids", $booking_id, $total_due, $transaction_id);
+        $stmt->execute();
+
+        // Mark late fee as paid 
+        $conn->query("UPDATE bookings SET is_late_paid = 1, late_fee = $late_amount, status='completed' WHERE booking_id = $booking_id");
+
+        // Add notification
+        $msg = "Dear {$username}, your late fee payment of Rs.{$total_due} has been successfully completed.";
+        $conn->query("INSERT INTO notifications (user_id, booking_id, message, type) VALUES ($user_id, $booking_id, '". $conn->real_escape_string($msg) ."', 'late_fee_paid')");
+
+        echo "<script>alert('Late fee paid successfully.'); window.location='../Frontend/notifications.php';</script>";
+        exit;
+    } else {
+        echo "<script>alert('Payment failed.'); window.history.back();</script>";
+        exit;
+    }
+
 }
 elseif (isset($post['confirm_booking'])) {
 
