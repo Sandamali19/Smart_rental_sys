@@ -1,0 +1,97 @@
+<?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    // Not logged in → redirect to login page
+  
+    header("Location:login.html");
+    exit();
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Post Your Item</title>
+    <link rel="stylesheet" href="../Style/post_item.css" />
+  </head>
+  <body>
+    <div class="form-container">
+      <h2>Post Your Item</h2>
+      <form
+        action="../Backend/post_item_action.php"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <label for="itemName">Item Name</label>
+        <input
+          type="text"
+          id="itemName"
+          name="item_name"
+          placeholder="Ex: Laptop, Bicycle"
+          required
+        />
+
+        <label for="category">Category</label>
+        <select id="category" name="cat_id" required>
+          <option value="">-- Select Category --</option>
+          <option value="1">Vehicles</option>
+          <option value="2">Travel Items</option>
+          <option value="3">Clothing</option>
+          <option value="4">Home & Decor</option>
+          <option value="5">Jewelry</option>
+          <option value="6">Music & Instruments</option>
+          <option value="7">Books</option>
+          <option value="8">Electronics</option>
+          <option value="9">Sports & Outdoors</option>
+          <option value="10">Property</option>
+           <option value="11">Other</option>
+        </select>
+
+        <label for="description">Description</label>
+        <textarea
+          id="description"
+          name="description"
+          rows="4"
+          placeholder="Add details about your item..."
+          required
+        ></textarea>
+
+        <label for="price">Price per Day (Rs.)</label>
+        <input
+          type="number"
+          id="price"
+          name="price"
+          min="100"
+          step="50"
+          required
+        />
+
+        <label for="location">Location</label>
+        <input
+          type="text"
+          id="location"
+          name="location"
+          placeholder="Ex: Galle, Colombo"
+          required
+        />
+
+        <label for="contact">Contact Number</label>
+        <input
+          type="tel"
+          id="contact"
+          name="contact_info"
+          placeholder="07XXXXXXXX"
+          required
+        />
+
+        <label for="image">Upload Item Image</label>
+        <input type="file" id="image" name="image" />
+
+        <button href="success.html" type="submit">Post Item</button>
+      </form>
+      <div >
+      <a href="../Frontend/view_post.php" class="btn btn-info">View My Posts</a>
+      </div>
+    </div>
+  </body>
+</html>
