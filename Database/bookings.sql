@@ -11,3 +11,7 @@ CREATE TABLE IF NOT EXISTS bookings (
     FOREIGN KEY (item_id) REFERENCES items(item_id) ON DELETE CASCADE, 
     FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE 
 ); 
+
+ALTER TABLE bookings
+  ADD COLUMN late_fee DECIMAL(10,2) NOT NULL DEFAULT 0.00 AFTER total_price,
+  ADD COLUMN is_late_paid TINYINT(1) NOT NULL DEFAULT 0 AFTER late_fee;
