@@ -43,6 +43,7 @@ $conn->close();
                 <a href="Frontend/post_item.php">Post Item</a>
                 <a href="Backend/all_items.php">Book Item</a>
                 <a href="Backend/user_profile.php">My Profile</a>
+                <a href="Frontend/notifications.php">Notifications</a>
                 <a href="Frontend/login.html"><button class="btn">Login</button></a>
                 <a href="Frontend/signup.html"><button class="btn">Signup</button></a>
             </nav>
