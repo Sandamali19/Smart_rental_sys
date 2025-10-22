@@ -17,6 +17,12 @@ if ($booking['status'] === 'completed') {
 
 $today = date('Y-m-d');
 
+//Prevent return before start date
+if ($today < $booking['start_date']) {
+    echo "<script>alert('You cannot return this item before the start date.'); window.location='../Frontend/notifications.php';</script>";
+    exit;
+}
+
 $user = $conn->query("SELECT username FROM users WHERE user_id = $user_id")->fetch_assoc();
 $username = $user ? $user['username'] : 'Unknown User';
 
