@@ -1,10 +1,11 @@
 <?php
 
-$host = "caboose.proxy.rlwy.net";
-$port = 33056;
+$host = "shuttle.proxy.rlwy.net";
+$port = 39718;
 $dbname = "railway";
 $username = "root";
-$password = "zOWLZuNJwpPVLuCdEKjDenPCNhkUCGak";
+$password = "MsIdAzDZZJxptQoAzQBwdGqqmrAsekqh";
+
 
 $conn = new mysqli($host, $username, $password, $dbname, $port);
 
