@@ -9,6 +9,12 @@ if(!$booking_id) die("Invalid.");
 $booking = $conn->query("SELECT * FROM bookings WHERE booking_id = $booking_id AND user_id = $user_id")->fetch_assoc();
 if(!$booking) die("Booking not found.");
 
+//control duplicate return
+if ($booking['status'] === 'completed') {
+    echo "<script>alert('This item has already been returned.'); window.location='../Frontend/notifications.php';</script>";
+    exit;
+}
+
 $today = date('Y-m-d');
 
 $user = $conn->query("SELECT username FROM users WHERE user_id = $user_id")->fetch_assoc();
