@@ -59,6 +59,27 @@ if (isset($_POST['pay_now'])) {
             mysqli_query($conn, "INSERT INTO item_availability (item_id, available_date, is_available) VALUES ('$item_id', '$d', 0)");
         }
     }
+
+    //send notifications to buyer and seller when a booking is confirmed
+    $item = mysqli_fetch_assoc(mysqli_query($conn, "SELECT item_name, user_id FROM items WHERE item_id='$item_id'"));
+    $item_name = $item['item_name'];
+    $seller_id = $item['user_id'];
+
+    $buyer = mysqli_fetch_assoc(mysqli_query($conn, "SELECT username FROM users WHERE user_id='$user_id'"));
+    $buyer_name = $buyer ? $buyer['username'] : 'Unknown User';
+
+
+    $buyer_msg = mysqli_real_escape_string($conn,"✅ Hi $buyer_name, your booking for '$item_name' is confirmed. Please return it before $end_date.");
+    $seller_msg = mysqli_real_escape_string($conn,"📢 Your item '$item_name' has been booked by $buyer_name.");
+
+
+    mysqli_query($conn, "INSERT INTO notifications (user_id, booking_id, message, type)
+                         VALUES ('$user_id', '$booking_id', '$buyer_msg', 'booking_confirmed')");
+
+    mysqli_query($conn, "INSERT INTO notifications (user_id, booking_id, message, type)
+                         VALUES ('$seller_id', '$booking_id', '$seller_msg', 'seller_booked')");
+
+    
     unset($_SESSION['payment_data']);
 
     echo "<script>alert('Payment Successful! Transaction ID: $transaction_id'); location='../index.php';</script>";
