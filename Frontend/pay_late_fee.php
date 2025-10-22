@@ -8,6 +8,10 @@ $booking_id = intval($_GET['booking_id'] ?? 0);
 $booking = $conn->query("SELECT * FROM bookings WHERE booking_id = $booking_id AND user_id = $user_id")->fetch_assoc();
 if(!$booking) die("Booking not found.");
 
+// Get username of buyer
+$user = $conn->query("SELECT username FROM users WHERE user_id = $user_id")->fetch_assoc();
+$username = $user ? $user['username'] : 'Unknown User';
+
 // get late fee details
 $PER_DAY_FEE = 500.00;
 $end = $booking['end_date'];
@@ -17,6 +21,13 @@ if($days_late < 0) $days_late = 0;
 $late_amount = $days_late * $PER_DAY_FEE;
 $service_charge = round($late_amount * 0.03, 2);
 $total_due = round($late_amount + $service_charge, 2);
+
+// check booking table has late_fee 
+if(floatval($booking['late_fee']) > 0){
+    $late_amount = floatval($booking['late_fee']);
+    $service_charge = round($late_amount * 0.03, 2);
+    $total_due = round($late_amount + $service_charge, 2);
+}
 
 ?>
 
