@@ -1,0 +1,127 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Background  */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 50px 20px;
+}
+
+/* Wrapper */
+.notification-wrapper {
+    background: #ffffffee;
+    backdrop-filter: blur(8px);
+    width: 100%;
+    max-width: 850px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    padding: 30px 40px;
+    animation: fadeIn 0.8s ease;
+}
+
+
+.notification-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 25px;
+    color: #4c51bf;
+    letter-spacing: 0.5px;
+}
+
+
+.notification-card {
+    background: linear-gradient(135deg, #f8faff, #eef2ff);
+    border-left: 6px solid #667eea;
+    border-radius: 12px;
+    padding: 15px 20px;
+    margin-bottom: 18px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.notification-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+}
+
+/* Message text */
+.notification-message {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+
+.notification-date {
+    color: #666;
+    font-size: 0.85rem;
+}
+
+/* Buttons container */
+.notification-actions {
+    margin-top: 12px;
+}
+
+
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    color: #fff;
+}
+
+
+.return-btn {
+    background: linear-gradient(135deg, #48bb78, #38a169);
+}
+.return-btn:hover {
+    box-shadow: 0 0 10px rgba(72,187,120,0.6);
+    transform: translateY(-2px);
+}
+
+/* Pay Late Fee button */
+.pay-btn {
+    background: linear-gradient(135deg, #ed64a6, #d53f8c);
+}
+.pay-btn:hover {
+    box-shadow: 0 0 10px rgba(237,100,166,0.6);
+    transform: translateY(-2px);
+}
+
+/* Paid  button */
+.paid-btn {
+    background: #a0aec0;
+    cursor: not-allowed;
+}
+
+/* Empty state */
+.no-notifications {
+    text-align: center;
+    padding: 3rem 1rem;
+    font-size: 1.1rem;
+    color: #555;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}

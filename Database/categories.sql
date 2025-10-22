@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS categories ( 
+    cat_id INT AUTO_INCREMENT PRIMARY KEY, 
+    cat_name VARCHAR(50) NOT NULL UNIQUE, 
+    cat_description TEXT, 
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP 
+); 
