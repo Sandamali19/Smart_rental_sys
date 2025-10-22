@@ -35,8 +35,8 @@ if (isset($_POST['pay_now'])) {
     $transaction_id = 'TXN-' . strtoupper(uniqid());
 
     // add payment info to the payments table
-    $insert_payment = "INSERT INTO payments (booking_id, amount, payment_method, payment_status, transaction_id)
-                       VALUES ('$booking_id', '$total_price', 'Card', 'completed', '$transaction_id')";
+    $insert_payment = "INSERT INTO payments (booking_id, amount, payment_method, payment_status, transaction_id,payment_type)
+                       VALUES ('$booking_id', '$total_price', 'Card', 'completed', '$transaction_id','normal')";
     mysqli_query($conn, $insert_payment);
 
     // update item availability
