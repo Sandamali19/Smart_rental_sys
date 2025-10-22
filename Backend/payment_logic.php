@@ -63,7 +63,7 @@ if ($payment_type === 'late_fee') {
     }
 
 }
-elseif (isset($post['confirm_booking'])) {
+elseif (isset($_POST['confirm_booking'])) {
 
     $item_id = intval($_POST['item_id']);
     $price_per_day = floatval($_POST['price_per_day']);
