@@ -9,3 +9,5 @@ CREATE TABLE IF NOT EXISTS payments (
     payment_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
     FOREIGN KEY (booking_id) REFERENCES bookings(booking_id) ON DELETE CASCADE 
 ); 
+alter table payments
+add column payment_type varchar(50);
