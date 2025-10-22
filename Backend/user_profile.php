@@ -43,6 +43,24 @@ if (!isset($_SESSION['user_id'])) {
       $payments = $pay_stmt->get_result()->fetch_all(MYSQLI_ASSOC);
       $pay_stmt->close();
 
+      $rental_sql = "SELECT b.booking_id, b.start_date, b.end_date, b.status,
+                      i.item_name,
+                      u.username AS buyer_name
+               FROM bookings b
+               JOIN items i ON b.item_id = i.item_id
+               JOIN users u ON b.user_id = u.user_id
+               WHERE i.user_id = ?   /* item uploader’s user ID */
+               ORDER BY b.start_date DESC";
+
+      $rental_stmt = $conn->prepare($rental_sql);
+      $rental_stmt->bind_param("i", $user_id);
+      $rental_stmt->execute();
+      $rentals = $rental_stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+      $rental_stmt->close();
+
+
+
+
 ?>
 <html>
   <body>
@@ -92,6 +110,44 @@ if (!isset($_SESSION['user_id'])) {
             <?php endif; ?>
       </div>
       <br>
+      <div class="section">
+        <h2>My Rentals</h2>
+        <?php if (count($rentals) === 0): ?>
+          <p>No rentals found.</p>
+          <?php else: ?>
+            <table>
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>Buyer Name</th>
+                  <th>Start Date</th>
+                  <th>End Date</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php foreach ($rentals as $r): ?>
+                  <tr>
+                    <td><?php echo htmlspecialchars($r['item_name']); ?></td>
+                    <td><?php echo htmlspecialchars($r['buyer_name']); ?></td>
+                    <td><?php echo htmlspecialchars($r['start_date']); ?></td>
+                    <td><?php echo htmlspecialchars($r['end_date']); ?></td>
+                    <td class="status-<?php echo htmlspecialchars($r['status']); ?>">
+                      <?php echo ucfirst($r['status']); ?></td>
+                    <td>
+                      <form action="send_reminder.php" method="POST" style="display:inline;">
+                        <input type="hidden" name="booking_id" value="<?php echo $r['booking_id']; ?>">
+                        <button type="submit" class="reminder-btn">Send Reminder</button>
+                      </form>
+                    </td>
+                  </tr>
+                  <?php endforeach; ?>
+              </tbody>
+            </table>
+            <?php endif; ?>
+      </div>
+
       <div class="section">
         <h2>Payment History</h2>
         <?php if (count($payments) === 0): ?>
