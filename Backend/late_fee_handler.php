@@ -27,9 +27,14 @@ while($b = $res->fetch_assoc()){
     $stmt->bind_param("di", $late_fee_amount, $booking_id);
     $stmt->execute();
 
+    //user name
+    $user = $conn->query("SELECT username FROM users WHERE user_id = $user_id")->fetch_assoc();
+    $username = $user ? $user['username'] : 'Unknown User';
+
+
     // insert notification to buyer 
-    $msg = "Your booking #{$booking_id} is overdue by {$days_late} day(s). Late fee: Rs.{$late_fee_amount}.";
-        $conn->query("INSERT INTO notifications (user_id, booking_id, message, type) VALUES ($user_id, $booking_id, '". $conn->real_escape_string($msg) ."', 'late_fee')");
+    $msg = "Dear #{$username},your booking is overdue by {$days_late} day(s). Late fee: Rs.{$late_fee_amount}.";
+    $conn->query("INSERT INTO notifications (user_id, booking_id, message, type) VALUES ($user_id, $booking_id, '". $conn->real_escape_string($msg) ."', 'late_fee')");
 }
 
 
