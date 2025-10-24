@@ -413,5 +413,15 @@ footer {
 btn:hover {
   background-color: #1565c0;
 }
+.header-container .logo-img {
+    height: 50px;
+    width: auto;
+    transform: scale(1.4); 
+    transform-origin: left center; 
+}
+
+.header-container .logo span {
+    display: none;
+}
 
 
