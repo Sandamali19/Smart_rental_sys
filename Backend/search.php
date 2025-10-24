@@ -22,8 +22,8 @@ $conn->close();
 <html>
 <head>
     <title>Search Results</title>
-    <link rel="stylesheet" href="../style/search.css">
-    <h2><?php echo $searchTerm ? "Search Results for '$searchTerm'" : "All Items"; ?></h2>
+    <link rel="stylesheet" href="../style/all_items.css">
+    <h2 style="color:white";><?php echo $searchTerm ? "Search Results for '$searchTerm'" : "All Items"; ?></h2><br>
     
     <div class="item-grid">
         <?php
@@ -33,9 +33,11 @@ $conn->close();
                 <div class="item-card">
                     <img src="<?php echo $row['image_path']; ?>" alt="<?php echo $row['item_name']; ?>" width="200">
                     <h3><?php echo $row['item_name']; ?></h3>
+                    <p>Description: <?php echo htmlspecialchars($row['description']); ?></p>
                     <p>Price: Rs. <?php echo $row['price']; ?></p>
                     <p>Location: <?php echo $row['location']; ?></p>
-                    <a href="backend/book_item.php?item_id=<?php echo $row['item_id']; ?>"><button>Book Item</button></a>
+                    <p>Contact Number:<?php echo htmlspecialchars($row['contact_info']); ?></p>
+                    <a href="book_item.php?item_id=<?php echo $row['item_id']; ?>"><button>Book Item</button></a>
                 </div>
                 <?php
             }

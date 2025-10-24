@@ -27,10 +27,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             }
             exit();
         } else {
-            echo "<script>alert('Invalid password!'); window.location='login.html';</script>";
+            echo "<script>alert('Invalid password!'); window.location='../Frontend/login.html';</script>";
         }
     } else {
-        echo "<script>alert('No user found with that email!'); window.location='login.html';</script>";
+        echo "<script>alert('No user found with that email!'); window.location='../Frontend/login.html';</script>";
     }
 }
 

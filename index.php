@@ -30,6 +30,7 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RentHub - Rent Anything, Anytime</title>
     <link rel="stylesheet" href="Style/index.css">
+    <link rel="icon" type="image/png" href="Uploads/fav_icon.png">
     
     
 </head>
@@ -37,7 +38,10 @@ $conn->close();
    
     <header>
         <div class="header-container">
-            <a href="#" class="logo">🏠 RentHub</a>
+            <a href="index.php" class="logo">
+            <img src="Uploads/logo.png" alt="RentHub Logo" class="logo-img">
+            </a>
+
             <nav class="nav-links">
                 <a href="index.php">Home</a>
                 <a href="Frontend/post_item.php">Post Item</a>
@@ -183,7 +187,6 @@ $conn->close();
                     <h3>Quick Links</h3>
                     <ul>
                         <li><a href="index.php">Home</a></li>
-                        <li><a href="category_items.php">Search</a></li>
                         <li><a href="Frontend/signup.html">Signup</a></li>
                         <li><a href="Frontend/login.html">Login</a></li>
                     </ul>

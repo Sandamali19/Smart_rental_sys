@@ -33,7 +33,7 @@ $conn->close();
         <button type="submit">Search</button>
     </form>
 
-    <h2>All Items</h2>
+    <h2 style ="color:white";>All Items</h2><br>
     <div class="item-grid">
     <?php
         if($result->num_rows > 0){

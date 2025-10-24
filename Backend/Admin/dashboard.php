@@ -30,14 +30,16 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RentHub - Rent Anything, Anytime</title>
     <link rel="stylesheet" href="../../Style/index.css">
-    
+    <link rel="icon" type="image/png" href="../../Uploads/fav_icon.png">
+ 
     
 </head>
 <body>
    
     <header>
         <div class="header-container">
-            <a href="#" class="logo">🏠 RentHub</a>
+            <a href="index.php" class="logo"></a>
+            <img src="../../Uploads/logo.png" alt="RentHub Logo" class="logo-img" style="margin-left: -800px;">
             <nav class="nav-links">
                  <a href="manage_users.php">Manage Users</a>
             <a href="manage_items.php">Manage Items</a>
@@ -74,10 +76,16 @@ $conn->close();
         </div>
 
         <div class="search-container">
-            <div class="search-bar">
-                <input type="text" placeholder="Search for items to rent...">
-                <button>Search</button>
-            </div>
+             <form class="search-bar" action="../search.php" method="get">
+          <input
+            type="text"
+            name="item"
+            placeholder="Search for items..."
+            required
+          />
+          <button type="submit">Search</button>
+        </form>
+
         </div>
 
         <div class="categories-section">
@@ -85,7 +93,7 @@ $conn->close();
             <div class="category-buttons">
         <?php if ($cat_result && $cat_result->num_rows > 0): ?>
             <?php while ($cat = $cat_result->fetch_assoc()): ?>
-                <a href="Backend/category_items.php?cat_id=<?php echo $cat['cat_id']; ?>" class="category-btn">
+                <a href="../category_items.php?cat_id=<?php echo $cat['cat_id']; ?>" class="category-btn">
                     <?php echo htmlspecialchars($cat['cat_name']); ?>
                 </a>
             <?php endwhile; ?>
@@ -122,7 +130,7 @@ if ($result->num_rows > 0) {
             <h3><?php echo $row['item_name']; ?></h3>
             <p>Price: Rs. <?php echo $row['price']; ?></p>
             <p>Location: <?php echo $row['location']; ?></p>
-            <a href="Book_item.php?id=<?php echo $row['item_id']; ?>"><button>Book item</button></a>
+            <a href="../Book_item.php?item_id=<?php echo $row['item_id']; ?>"><button>Book item</button></a>
         </div>
         <?php
     }
@@ -169,10 +177,9 @@ if ($result->num_rows > 0) {
                 <div class="footer-section">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="index.php">Home</a></li>
-                        <li><a href="category_items.php">Search</a></li>
-                        <li><a href="Frontend/signup.html">Signup</a></li>
-                        <li><a href="Frontend/login.html">Login</a></li>
+                        <li><a href="dashboard.php">Home</a></li>
+                        <li><a href="../../Frontend/signup.html">Signup</a></li>
+                        <li><a href="../../Frontend/login.html">Login</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
