@@ -24,7 +24,7 @@ $item_result = $conn->query($item_sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo htmlspecialchars($cat_name); ?> - RentHub</title>
-    <link rel="stylesheet" href="style/index.css">
+    <link rel="stylesheet" href="../Style/all_items.css">
 </head>
 <body>
  
@@ -41,7 +41,7 @@ $item_result = $conn->query($item_sql);
                         <h3><?php echo $row['item_name']; ?></h3>
                         <p>Price: Rs. <?php echo $row['price']; ?></p>
                         <p>Location: <?php echo $row['location']; ?></p>
-                        <a href="Book_item.php?id=<?php echo $row['item_id']; ?>"><button>Book item</button></a>
+                        <a href="Book_item.php?item_id=<?php echo $row['item_id']; ?>"><button>Book item</button></a>
                     </div>
                     <?php
                 }
