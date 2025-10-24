@@ -29,7 +29,7 @@ $item_result = $conn->query($item_sql);
 <body>
  
     <main>
-        <h1>Items in <?php echo htmlspecialchars($cat_name); ?></h1>
+        <h1 style="color:white">Items in <?php echo htmlspecialchars($cat_name); ?></h1>
 
         <div class="item-grid">
             <?php
