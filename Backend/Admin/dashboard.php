@@ -122,7 +122,7 @@ if ($result->num_rows > 0) {
             <h3><?php echo $row['item_name']; ?></h3>
             <p>Price: Rs. <?php echo $row['price']; ?></p>
             <p>Location: <?php echo $row['location']; ?></p>
-            <a href="Book_item.php?id=<?php echo $row['item_id']; ?>"><button>Book item</button></a>
+            <a href="../Book_item.php?item_id=<?php echo $row['item_id']; ?>"><button>Book item</button></a>
         </div>
         <?php
     }
@@ -169,10 +169,9 @@ if ($result->num_rows > 0) {
                 <div class="footer-section">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="index.php">Home</a></li>
-                        <li><a href="category_items.php">Search</a></li>
-                        <li><a href="Frontend/signup.html">Signup</a></li>
-                        <li><a href="Frontend/login.html">Login</a></li>
+                        <li><a href="dashboard.php">Home</a></li>
+                        <li><a href="../../Frontend/signup.html">Signup</a></li>
+                        <li><a href="../../Frontend/login.html">Login</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
