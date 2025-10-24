@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $target_file = $target_dir . $image_name;
 
         if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
-            $image_path = $target_file;
+        $image_path = "Uploads/" . $image_name;
         }}
         $sql = "INSERT INTO items (
                 item_name, description, price, image_path, 
