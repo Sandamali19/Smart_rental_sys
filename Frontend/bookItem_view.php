@@ -2,13 +2,18 @@
 session_start();
 require '../Backend/config.php';
 
-$user_id = intval($_SESSION['user_id']);
+$user_id = isset($_SESSION['user_id']) ? intval($_SESSION['user_id']) : 0;
+
+if ($user_id === 0) {
+    echo "<script>alert('Please log in first.'); window.location='/Smart_rental_sys/Frontend/login.html';</script>";
+exit;
+}
 
 // Check unpaid late fees
 $res = $conn->query("SELECT COUNT(*) AS unpaid FROM bookings WHERE user_id = $user_id AND late_fee > 0 AND is_late_paid = 0");
 $unpaid = intval($res->fetch_assoc()['unpaid']);
 if($unpaid > 0){
-    echo "<script>alert('You have unpaid late fee(s). Please pay them before booking new items.'); window.location='/new/new/Frontend/notifications.php';</script>";
+    echo "<script>alert('You have unpaid late fee(s). Please pay them before booking new items.'); window.location='/Smart_rental_sys/Frontend/notifications.php';</script>";
     exit;
 }
 ?>
