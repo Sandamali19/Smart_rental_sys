@@ -23,7 +23,7 @@ $conn->close();
 <head>
     <title>Search Results</title>
     <link rel="stylesheet" href="../style/all_items.css">
-    <h2 style="color:white";><?php echo $searchTerm ? "Search Results for '$searchTerm'" : "All Items"; ?></h2>
+    <h2 style="color:white";><?php echo $searchTerm ? "Search Results for '$searchTerm'" : "All Items"; ?></h2><br>
     
     <div class="item-grid">
         <?php
