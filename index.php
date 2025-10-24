@@ -122,7 +122,7 @@ $conn->close();
             </div>
         </div>
 
-        <h2>Latest Items for Rent</h2>
+        <h2>Latest Items for Rent</h2><br>
     <div class="item-grid">
         <?php
     
@@ -130,7 +130,7 @@ $conn->close();
             while($row = $result->fetch_assoc()) {
                 ?>
                 <div class="item-card">
-                    <img src="<?php echo $row['image_path']; ?>" alt="<?php echo htmlspecialchars($row['item_name']); ?>" width="200">
+                    <img src="Uploads/<?php echo htmlspecialchars($row['image_path']); ?>" alt="<?php echo htmlspecialchars($row['item_name']); ?>" width="200">
                     <h3><?php echo htmlspecialchars($row['item_name']); ?></h3>
                     <p><b>Description:</b> <?php echo htmlspecialchars($row['description']); ?></p>
                     <p><b>Price: Rs. </b><?php echo $row['price']; ?></p>
