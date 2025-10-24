@@ -27,7 +27,11 @@ if($unpaid > 0){
   <body>
     <div class="booking-container">
       <h1><?php echo $item_name ?></h1>
-      <img src="../<?php echo htmlspecialchars($image_path); ?>" alt="Item Image" class="item-image">
+       <img
+        src="<?php echo $image_path ?>"
+        alt="Item Image"
+        class="item-image"
+      />
 
       <p>
         <strong>Description:</strong>
