@@ -74,10 +74,16 @@ $conn->close();
         </div>
 
         <div class="search-container">
-            <div class="search-bar">
-                <input type="text" placeholder="Search for items to rent...">
-                <button>Search</button>
-            </div>
+             <form class="search-bar" action="../Backend/search.php" method="get">
+          <input
+            type="text"
+            name="item"
+            placeholder="Search for items..."
+            required
+          />
+          <button type="submit">Search</button>
+        </form>
+
         </div>
 
         <div class="categories-section">
