@@ -37,7 +37,7 @@ $conn->close();
                     <p>Price: Rs. <?php echo $row['price']; ?></p>
                     <p>Location: <?php echo $row['location']; ?></p>
                     <p>Contact Number:<?php echo htmlspecialchars($row['contact_info']); ?></p>
-                    <a href="backend/book_item.php?item_id=<?php echo $row['item_id']; ?>"><button>Book Item</button></a>
+                    <a href="book_item.php?item_id=<?php echo $row['item_id']; ?>"><button>Book Item</button></a>
                 </div>
                 <?php
             }
