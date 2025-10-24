@@ -2,6 +2,10 @@
 
 require '../Backend/config.php';
 session_start();
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ../Frontend/login.html");
+    exit();
+}
 $uid = intval($_SESSION['user_id']);
 
 include '../Backend/late_fee_handler.php';
@@ -22,6 +26,8 @@ $res = $conn->query("SELECT n.*, b.end_date, b.late_fee, b.is_late_paid
 <body>
 
     <div class="notification-wrapper">
+        
+<a href="../index.php" class="back-link">&larr; Back to Home</a>
         <h2 class="notification-title">Your Notifications</h2>
 
         <?php if ($res->num_rows == 0): ?>
