@@ -57,17 +57,17 @@ $conn->close();
             <div class="stats-container">
                 <div class="stat-card">
                     <div class="stat-icon">📦</div>
-                    <div class="stat-number"></div>
+                    <div class="stat-number"><?php echo $item_count; ?></div>
                     <div class="stat-label">Available Items</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-icon">👥</div>
-                    <div class="stat-number"></div>
+                    <div class="stat-number"><?php echo $user_count; ?></div>
                     <div class="stat-label">Active Users</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-icon">🏷️</div>
-                    <div class="stat-number"></div>
+                    <div class="stat-number"><?php echo $cat_count; ?></div>
                     <div class="stat-label">Categories</div>
                 </div>
             </div>
