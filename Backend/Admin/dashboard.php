@@ -76,7 +76,7 @@ $conn->close();
         </div>
 
         <div class="search-container">
-             <form class="search-bar" action="../Backend/search.php" method="get">
+             <form class="search-bar" action="../search.php" method="get">
           <input
             type="text"
             name="item"
@@ -93,7 +93,7 @@ $conn->close();
             <div class="category-buttons">
         <?php if ($cat_result && $cat_result->num_rows > 0): ?>
             <?php while ($cat = $cat_result->fetch_assoc()): ?>
-                <a href="Backend/category_items.php?cat_id=<?php echo $cat['cat_id']; ?>" class="category-btn">
+                <a href="../category_items.php?cat_id=<?php echo $cat['cat_id']; ?>" class="category-btn">
                     <?php echo htmlspecialchars($cat['cat_name']); ?>
                 </a>
             <?php endwhile; ?>
