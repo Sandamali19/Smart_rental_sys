@@ -12,7 +12,7 @@ $cat_sql = "SELECT cat_name FROM categories WHERE cat_id = $cat_id";
 $cat_result = $conn->query($cat_sql);
 $cat_name = ($cat_result->num_rows > 0) ? $cat_result->fetch_assoc()['cat_name'] : "Unknown Category";
 
-$item_sql = "SELECT item_id, item_name, price, image_path, location 
+$item_sql = "SELECT item_id, item_name, price, image_path, location ,description, contact_info
              FROM items 
              WHERE cat_id = $cat_id AND availability_status = 'available'";
 $item_result = $conn->query($item_sql);
@@ -39,8 +39,10 @@ $item_result = $conn->query($item_sql);
                     <div class="item-card">
                         <img src="<?php echo $row['image_path']; ?>" alt="<?php echo $row['item_name']; ?>" />
                         <h3><?php echo $row['item_name']; ?></h3>
+                        <p>Description: <?php echo htmlspecialchars($row['description']); ?></p>
                         <p>Price: Rs. <?php echo $row['price']; ?></p>
                         <p>Location: <?php echo $row['location']; ?></p>
+                        <p>Contact Number:<?php echo htmlspecialchars($row['contact_info']); ?></p>
                         <a href="Book_item.php?item_id=<?php echo $row['item_id']; ?>"><button>Book item</button></a>
                     </div>
                     <?php
